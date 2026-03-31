@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tincraft:block/tin_ore"
+    }
+  }
+}

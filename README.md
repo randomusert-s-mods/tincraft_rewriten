@@ -1,28 +1,32 @@
 # Tincraft 2
-Tincraft 2 is the new and improved version of tincraft. Starting with same content as the original.
+Tincraft 2 is the new and improved version of Tincraft, starting with the same content as the original mod and expanding from there. It’s built to be more maintainable, modular, and ready for future updates.
 
 # resources and blocks
+Current content includes:
 
-*   tin ingot
-*   tin block
-*   tin ore and more later on
-
+Tin ingot
+Tin block
+Tin ore
+More content will be added in future updates
 # note!
 
-This mod isn't complete and is in development
+This mod is still in development and not yet complete. Expect new features and improvements over time.
 
 # issues
 
-if you found bugs or want to suggest a feature go to [https://github.com/randomusert-s-mods/tincraft_rewriten/issues](https://github.com/randomusert-s-mods/tincraft_rewriten/issues)
+If you encounter bugs or want to suggest a feature, please submit them here:
+
+[https://github.com/randomusert-s-mods/tincraft_rewriten/issues](https://github.com/randomusert-s-mods/tincraft_rewriten/issues)
+
+
+
+# 🛠️ Dependencies
+## Fabric:
+* Fabric API
+* Architectury API
+* TinCore
+## NeoForge
+* Architectury API
+* TinCore
 
 Created by randomusert
-
-# Dependencies
-## Fabric
-* fabric api
-* architectury api
-* tincore
-
-## Neoforge
-* architectury api
-* tincore
