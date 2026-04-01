@@ -13,19 +13,14 @@ import net.minecraft.world.item.Items;
 public class TCTabs {
     private static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Tincraft.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
-    // Register your custom tab
-    public static final CreativeModeTab MAIN_TAB = CreativeTabRegistry.create(builder -> {
-        builder.title(Component.translatable("creative_tab.main"));
-        builder.icon(() -> new ItemStack(Items.DIAMOND));
-        builder.displayItems((params, output) -> {
-            output.accept(new ItemStack(TCItems.TIN_INGOT.get()));
-            output.accept(new ItemStack(TCItems.TIN_BLOCK_ITEM.get()));
-            output.accept(new ItemStack(TCItems.TIN_ORE_ITEM.get()));
-            output.accept(new ItemStack(Items.GOLD_INGOT));
-        });
-    });
+
+    public static RegistrySupplier<CreativeModeTab> MAIN_TAB;
 
     public static void initTabs(){
+
+        MAIN_TAB =
+                TABS.register("main_tab", () -> CreativeTabRegistry.create(Component.translatable("creative_tab.main"), () -> new ItemStack(TCItems.TIN_INGOT.get())));
+
 
 
         TABS.register();
