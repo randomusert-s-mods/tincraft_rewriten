@@ -1,6 +1,7 @@
 package io.github.randomusert.mods.tincraft.fabric;
 
 import io.github.randomusert.mods.tincraft.Tincraft;
+import io.github.randomusert.mods.tincraft.fabric.blocks.TCBlockEntityTypesFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -19,7 +20,10 @@ public final class TincraftFabric implements ModInitializer {
         // Run our common setup.
         Tincraft.init();
 
+        // Adds world gen for fabric. REQUIRED for tin ore generating
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE,
                 ResourceLocation.fromNamespaceAndPath(Tincraft.MOD_ID, "tin_ore")));
+
+        TCBlockEntityTypesFabric.initBlockEntityTypes();
     }
 }
