@@ -12,8 +12,9 @@ public final class Tincraft {
     public static void init() {
         LOGGER.info("Tincraft Common init started");
         TCTabs.initTabs();
-        TCBlockEntities.init();
         TCBlocks.init();
+        TCBlockEntities.init();
+
         TCItems.init();
         LOGGER.info("Tincraft Common init completed");
 
