@@ -10,8 +10,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 public class TCBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Tincraft.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
-    public static final RegistrySupplier<BlockEntityType<TinCraftingTableEntity>> BASIC_TIN_ENERGY_CUBE =
-            BLOCK_ENTITIES.register("basic_tin_energy_cube", () -> BlockEntityType.Builder.of(TinCraftingTableEntity::new, TCBlocks.TIN_CRAFTING_TABLE.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<TinCraftingTableEntity>> TIN_CRAFTING_TABLE =
+            BLOCK_ENTITIES.register("tin_crafting_table", () -> BlockEntityType.Builder.of(TinCraftingTableEntity::new, TCBlocks.TIN_CRAFTING_TABLE.get()).build(null));
 
     public static void init() {
         BLOCK_ENTITIES.register();

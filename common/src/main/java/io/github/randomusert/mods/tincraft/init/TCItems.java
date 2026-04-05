@@ -26,6 +26,9 @@ public class TCItems {
     public static final DeferredSupplier<BlockItem> TIN_ORE_ITEM = ITEMS.register("tin_ore",
             () -> new BlockItem(TCBlocks.TIN_ORE.get(), new Item.Properties().arch$tab(MAIN_TAB)));
 
+    public static final DeferredSupplier<BlockItem> TIN_CRAFTING_TABLE = ITEMS.register("tin_crafting_table",
+            () -> new BlockItem(TCBlocks.TIN_CRAFTING_TABLE.get(), new Item.Properties().arch$tab(MAIN_TAB)));
+
     public static void init() {
         ITEMS.register();
     }

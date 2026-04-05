@@ -15,7 +15,7 @@ public class TinCraftingTableEntity extends BlockEntity {
 
 
     public TinCraftingTableEntity(BlockPos pos, BlockState state) {
-        super(TCBlockEntities.BASIC_TIN_ENERGY_CUBE.get(), pos, state);
+        super(TCBlockEntities.TIN_CRAFTING_TABLE.get(), pos, state);
 
     }
 
