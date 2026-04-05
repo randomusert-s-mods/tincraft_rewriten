@@ -15,6 +15,7 @@ public final class TincraftFabric implements ModInitializer {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
+        Tincraft.LOGGER.info("Fabric init started");
 
         // Run our common setup.
         Tincraft.init();
@@ -23,6 +24,7 @@ public final class TincraftFabric implements ModInitializer {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE,
                 ResourceLocation.fromNamespaceAndPath(Tincraft.MOD_ID, "tin_ore")));
 
+        Tincraft.LOGGER.info("Fabric Init Done");
 
     }
 }
