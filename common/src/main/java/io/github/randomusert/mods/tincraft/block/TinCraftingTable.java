@@ -1,9 +1,17 @@
 package io.github.randomusert.mods.tincraft.block;
 
 import com.mojang.serialization.MapCodec;
-import io.github.randomusert.mods.tincore.block.BaseBlock;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.InteractionEvent;
+import io.github.randomusert.mods.tincraft.block.entities.TinCraftingTableEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -17,12 +25,13 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class TinCraftingTable extends BaseEntityBlock {
-    public static final EnumProperty<Direction> FACING;
+public class TinCraftingTable extends BaseEntityBlock implements InteractionEvent.RightClickBlock {
+
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
     public static final MapCodec<TinCraftingTable> CODEC = simpleCodec(TinCraftingTable::new);
+
     public TinCraftingTable(Properties properties) {
         super(properties);
-
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
@@ -32,13 +41,8 @@ public class TinCraftingTable extends BaseEntityBlock {
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new TinCraftingTableEntity(blockPos, blockState);
-    }
-
-    @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return level.isClientSide ? null : new TinCraftingTableEntity.Ticker<>();
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new TinCraftingTableEntity(pos, state);
     }
 
     @Override
@@ -47,26 +51,30 @@ public class TinCraftingTable extends BaseEntityBlock {
     }
 
     @Override
-    protected @NotNull BlockState rotate(BlockState state, Rotation rotation) {
-        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
-    }
-
-    @Override
-    protected @NotNull BlockState mirror(BlockState state, Mirror mirror) {
-        return state.rotate(mirror.getRotation(state.getValue(FACING)));
-    }
-
-    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 
     @Override
-    protected @NotNull RenderShape getRenderShape(BlockState blockState) {
+    protected @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
-    static {
-        FACING = BlockStateProperties.FACING;
+    @Override
+    public EventResult click(Player player, InteractionHand hand, BlockPos pos, Direction face) {
+        BlockEntity be = player.level().getBlockEntity(pos);
+        if (!(be instanceof TinCraftingTableEntity blockEntity)) return EventResult.pass();
+        if (player.isShiftKeyDown()) return EventResult.pass();
+
+        if (player instanceof ServerPlayer serverPlayer) {
+            NetworkHooks.openScreen(serverPlayer, blockEntity, pos);
+        }
+        return EventResult.consume();
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
+        Containers.dropContentsOnDestroy(state, newState, level, pos);
+        super.onRemove(state, level, pos, newState, moved);
     }
 }

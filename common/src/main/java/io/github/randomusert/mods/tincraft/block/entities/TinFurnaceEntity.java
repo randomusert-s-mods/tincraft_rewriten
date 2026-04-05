@@ -1,4 +1,4 @@
-package io.github.randomusert.mods.tincraft.block;
+package io.github.randomusert.mods.tincraft.block.entities;
 
 import io.github.randomusert.mods.tincore.block.BaseBlockEntity;
 
