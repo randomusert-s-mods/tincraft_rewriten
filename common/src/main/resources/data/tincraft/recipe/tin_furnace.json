@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": {
+      "item": "tincraft:tin_ingot"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XFX",
+    "XXX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tincraft:tin_furnace"
+  }
+}

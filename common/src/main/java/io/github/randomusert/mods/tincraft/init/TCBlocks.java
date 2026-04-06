@@ -4,7 +4,8 @@ package io.github.randomusert.mods.tincraft.init;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.DeferredSupplier;
 import io.github.randomusert.mods.tincraft.Tincraft;
-import io.github.randomusert.mods.tincraft.block.TinCraftingTable;
+//import io.github.randomusert.mods.tincraft.block.TinCraftingTable;
+import io.github.randomusert.mods.tincraft.block.TinFurnace;
 import io.github.randomusert.mods.tincraft.block.Tinblock;
 import io.github.randomusert.mods.tincraft.block.Tinore;
 import net.minecraft.core.registries.Registries;
@@ -33,8 +34,10 @@ public class TCBlocks {
 
 
     //Block entities addition to registry
-    public static final DeferredSupplier<Block> TIN_CRAFTING_TABLE = TC_BLOCKS.register("tin_crafting_table",
-            () -> new TinCraftingTable(BlockBehaviour.Properties.of()));
+   // public static final DeferredSupplier<Block> TIN_CRAFTING_TABLE = TC_BLOCKS.register("tin_crafting_table",
+     //       () -> new TinCraftingTable(BlockBehaviour.Properties.of()));
+    public static final DeferredSupplier<Block> TIN_FURNACE = TC_BLOCKS.register("tin_furnace",
+            () -> new TinFurnace(BlockBehaviour.Properties.of()));
 
 
     public static void init() {
