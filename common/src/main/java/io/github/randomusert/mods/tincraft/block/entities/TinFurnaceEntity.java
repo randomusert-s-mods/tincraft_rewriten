@@ -21,7 +21,7 @@ public class TinFurnaceEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     protected Component getDefaultName() {
-        return Component.literal("Tin Furnace");
+        return Component.translatable("blockentity.tincraft.tin_furnace");
     }
 
     @Override

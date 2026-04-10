@@ -11,11 +11,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 public class TCBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Tincraft.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
-    //public static final RegistrySupplier<BlockEntityType<TinCraftingTableEntity>> TIN_CRAFTING_TABLE =
-      //      BLOCK_ENTITIES.register("tin_crafting_table", () -> BlockEntityType.Builder.of(TinCraftingTableEntity::new, TCBlocks.TIN_CRAFTING_TABLE.get()).build(null));
+
 
     public static final RegistrySupplier<BlockEntityType<TinFurnaceEntity>> TIN_FURNACE =
-            BLOCK_ENTITIES.register("tin_crafting_table", () -> BlockEntityType.Builder.of(TinFurnaceEntity::new, TCBlocks.TIN_FURNACE.get()).build(null));
+            BLOCK_ENTITIES.register("tin_furnace", () -> BlockEntityType.Builder.of(TinFurnaceEntity::new, TCBlocks.TIN_FURNACE.get()).build(null));
 
     public static void init() {
         BLOCK_ENTITIES.register();
