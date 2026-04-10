@@ -34,6 +34,23 @@ jobs:
               distribution: temurin
               java-version: 21
 
+      - name: Configure Maven for GitHub Packages
+        run: |
+           mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOF
+          <settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${USERNAME}</username>
+                <password>${TOKEN}</password>
+                </server>
+           </servers>
+          </settings>
+          EOF
+        env:
+         TOKEN: ${{ secrets.TOKEN }}
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
