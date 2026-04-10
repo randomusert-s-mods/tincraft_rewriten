@@ -34,6 +34,7 @@ jobs:
               distribution: temurin
               java-version: 21
 
+
       - name: Configure Maven for GitHub Packages
         run: |
            mkdir -p ~/.m2
