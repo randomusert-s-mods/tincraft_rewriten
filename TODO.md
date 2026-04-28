@@ -12,7 +12,7 @@
 ---
 
 ### 🚧 Release Blockers
-- [ ] Remove leftover experimental BlockEntities
+- [X] Remove leftover experimental BlockEntities
 - [X] Clean unused assets (models/textures/blockstates)
 - [X] Replace hardcoded strings with lang keys
 - [X] Verify all registry IDs are correct
