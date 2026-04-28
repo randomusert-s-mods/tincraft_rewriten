@@ -3,6 +3,7 @@ package io.github.randomusert.mods.tincraft.init;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.DeferredSupplier;
 import io.github.randomusert.mods.tincraft.Tincraft;
+import io.github.randomusert.mods.tincraft.item.ConductiveTinIngot;
 import io.github.randomusert.mods.tincraft.item.TinIngot;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
@@ -20,6 +21,12 @@ public class TCItems {
             "tin_ingot",
             () -> new TinIngot(new Item.Properties().arch$tab(MAIN_TAB))
     );
+
+    public static final DeferredSupplier<Item> CONDUCTIVE_TIN_INGOT = ITEMS.register(
+            "conductive_tin_ingot",
+            () -> new ConductiveTinIngot(new Item.Properties().arch$tab(MAIN_TAB))
+    );
+
 
     // adding block items to the item registry
     public static final DeferredSupplier<BlockItem> TIN_BLOCK_ITEM = ITEMS.register("tin_block",
