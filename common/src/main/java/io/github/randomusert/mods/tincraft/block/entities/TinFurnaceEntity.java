@@ -2,6 +2,7 @@ package io.github.randomusert.mods.tincraft.block.entities;
 
 import io.github.randomusert.mods.tincore.block.BaseBlockEntity;
 import io.github.randomusert.mods.tincraft.init.TCBlockEntities;
+import io.github.randomusert.mods.tincraft.init.TCRecipeType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -16,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class TinFurnaceEntity extends AbstractFurnaceBlockEntity {
 
     public TinFurnaceEntity(BlockPos blockPos, BlockState blockState) {
-        super(TCBlockEntities.TIN_FURNACE.get(),blockPos, blockState, RecipeType.SMELTING);
+        super(TCBlockEntities.TIN_FURNACE.get(),blockPos, blockState, TCRecipeType.TIN_SMELTING.get());
     }
 
     @Override

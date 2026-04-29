@@ -13,6 +13,8 @@ public final class Tincraft {
         LOGGER.info("Tincraft Common init started");
         TCTabs.initTabs();
         TCBlocks.init();
+        TCRecipeType.init();
+        TCRecipeSerializer.init();
         TCBlockEntities.init();
 
         TCItems.init();

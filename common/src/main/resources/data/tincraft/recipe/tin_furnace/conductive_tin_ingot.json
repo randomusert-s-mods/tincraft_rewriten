@@ -1,0 +1,13 @@
+{
+  "type": "tincraft:tin_smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "tincraft:tin_ingot"
+  },
+  "result": {
+    "count": 1,
+    "id": "tincraft:condutive_tin_ingot"
+  }
+}
