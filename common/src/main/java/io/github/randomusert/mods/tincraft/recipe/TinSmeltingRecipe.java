@@ -25,7 +25,7 @@ public class TinSmeltingRecipe extends AbstractCookingRecipe {
 
     @Override
     public CookingBookCategory category() {
-        return switch (this.category()) {
+        return switch (super.category()) {
             case FOOD -> CookingBookCategory.FOOD;
             case BLOCKS -> CookingBookCategory.BLOCKS;
             case MISC -> CookingBookCategory.MISC;
