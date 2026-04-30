@@ -34,11 +34,11 @@ public class TCItems {
 
     public static final DeferredSupplier<BlockItem> TIN_ORE_ITEM = ITEMS.register("tin_ore",
             () -> new BlockItem(TCBlocks.TIN_ORE.get(), new Item.Properties().arch$tab(MAIN_TAB)));
-
-
      public static final DeferredSupplier<BlockItem> TIN_FURNACE = ITEMS.register("tin_furnace",
             () -> new BlockItem(TCBlocks.TIN_FURNACE.get(), new Item.Properties().arch$tab(MAIN_TAB)));
 
+     public static final DeferredSupplier<BlockItem> TIN_GENERATOR = ITEMS.register("tin_generator",
+             () -> new BlockItem(TCBlocks.TIN_GENERATOR.get(), new Item.Properties().arch$tab(MAIN_TAB)));
 
     public static void init() {
         ITEMS.register();
