@@ -6,6 +6,7 @@ import dev.architectury.registry.registries.DeferredSupplier;
 import io.github.randomusert.mods.tincraft.Tincraft;
 //import io.github.randomusert.mods.tincraft.block.TinCraftingTable;
 import io.github.randomusert.mods.tincraft.block.TinFurnace;
+import io.github.randomusert.mods.tincraft.block.TinGeneratorBlock;
 import io.github.randomusert.mods.tincraft.block.Tinblock;
 import io.github.randomusert.mods.tincraft.block.Tinore;
 import net.minecraft.core.registries.Registries;
@@ -37,6 +38,9 @@ public class TCBlocks {
 
     public static final DeferredSupplier<Block> TIN_FURNACE = TC_BLOCKS.register("tin_furnace",
             () -> new TinFurnace(BlockBehaviour.Properties.of()));
+
+    public static final DeferredSupplier<Block> TIN_GENERATOR = TC_BLOCKS.register("tin_generator",
+            () -> new TinGeneratorBlock(BlockBehaviour.Properties.of()));
 
 
     public static void init() {

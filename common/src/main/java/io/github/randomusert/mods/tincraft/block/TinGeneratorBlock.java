@@ -1,4 +1,10 @@
 package io.github.randomusert.mods.tincraft.block;
 
-public class TinGeneratorBlock {
+import net.minecraft.world.level.block.Block;
+
+public class TinGeneratorBlock extends Block {
+
+    public TinGeneratorBlock(Properties props) {
+        super(props);
+    }
 }

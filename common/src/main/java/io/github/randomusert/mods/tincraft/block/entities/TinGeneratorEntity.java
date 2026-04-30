@@ -1,6 +1,7 @@
 package io.github.randomusert.mods.tincraft.block.entities;
 
 import io.github.randomusert.mods.tincore.energy.EnergyStorage;
+import io.github.randomusert.mods.tincraft.init.TCBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
@@ -19,8 +20,8 @@ public class TinGeneratorEntity extends BaseContainerBlockEntity {
     protected NonNullList<ItemStack> items;
 
 
-    protected TinGeneratorEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
+    public TinGeneratorEntity( BlockPos blockPos, BlockState blockState) {
+        super(TCBlockEntities.TIN_GENERATOR.get(), blockPos, blockState);
         this.items = NonNullList.withSize(3, ItemStack.EMPTY);
     }
 
