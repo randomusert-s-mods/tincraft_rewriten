@@ -3,17 +3,24 @@ package io.github.randomusert.mods.tincraft.block;
 import com.mojang.serialization.MapCodec;
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.InteractionEvent;
+import io.github.randomusert.mods.tincraft.block.entities.TinGeneratorEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEvent.RightClickBlock {
@@ -28,9 +35,51 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
         InteractionEvent.RIGHT_CLICK_BLOCK.register(this);
     }
 
+
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return null;
+    protected void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2, boolean bl) {
+        if (!blockState.is(blockState2.getBlock())) {
+            BlockEntity blockEntity = level.getBlockEntity(blockPos);
+            if (blockEntity instanceof TinGeneratorEntity) {
+                if (level instanceof ServerLevel) {
+                    Containers.dropContents(level, blockPos, (TinGeneratorEntity) blockEntity);
+                }
+
+                super.onRemove(blockState, level, blockPos, blockState2, bl);
+            } else {
+                super.onRemove(blockState, level, blockPos, blockState2, bl);
+            }
+        }
+    }
+
+
+    protected void openContainer(Level level, BlockPos blockPos, Player player) {
+        BlockEntity be = level.getBlockEntity(blockPos);
+        if (be instanceof TinGeneratorEntity) {
+            player.openMenu((MenuProvider) be);
+
+        }
+    }
+
+    public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
+        return (BlockState)this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
+    }
+
+    @Override
+    protected @NotNull InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
+        if (level.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            this.openContainer(level, blockPos, player);
+            return InteractionResult.CONSUME;
+        }
+    }
+
+
+
+    @Override
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Override
@@ -38,17 +87,22 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
         return null;
     }
 
-    protected RenderShape getRenderShape(BlockState blockState) {
+    protected @NotNull RenderShape getRenderShape(BlockState blockState) {
         return RenderShape.MODEL;
     }
 
-    protected BlockState rotate(BlockState blockState, Rotation rotation) {
+    protected @NotNull BlockState rotate(BlockState blockState, Rotation rotation) {
         return (BlockState)blockState.setValue(FACING, rotation.rotate((Direction)blockState.getValue(FACING)));
     }
 
-    protected BlockState mirror(BlockState blockState, Mirror mirror) {
+    protected @NotNull BlockState mirror(BlockState blockState, Mirror mirror) {
         return blockState.rotate(mirror.getRotation((Direction)blockState.getValue(FACING)));
     }
+
+    /*
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType, BlockEntityType<? extends TinGeneratorEntity> blockEntityType2) {
+        return level.isClientSide ? null : createTickerHelper(blockEntityType, blockEntityType2,);
+    }*/
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{FACING});
@@ -61,6 +115,6 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return null;
+        return new TinGeneratorEntity(blockPos, blockState);
     }
 }

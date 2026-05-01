@@ -40,6 +40,9 @@ public class TinGeneratorEntity extends BaseContainerBlockEntity {
 
     }
 
+
+
+
     @Override
     protected @NotNull AbstractContainerMenu createMenu(int i, Inventory inventory) {
         return null;
