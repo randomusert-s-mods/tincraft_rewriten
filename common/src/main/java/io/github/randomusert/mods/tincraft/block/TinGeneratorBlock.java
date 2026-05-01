@@ -52,7 +52,7 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
         }
     }
 
-
+/*
     protected void openContainer(Level level, BlockPos blockPos, Player player) {
         BlockEntity be = level.getBlockEntity(blockPos);
         if (be instanceof TinGeneratorEntity) {
@@ -60,11 +60,12 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
 
         }
     }
-
+*/
     public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
         return (BlockState)this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
     }
 
+    /*
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
         if (level.isClientSide) {
@@ -73,7 +74,7 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
             this.openContainer(level, blockPos, player);
             return InteractionResult.CONSUME;
         }
-    }
+    }*/
 
 
 
@@ -84,7 +85,7 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
 
     @Override
     public EventResult click(Player player, InteractionHand hand, BlockPos pos, Direction face) {
-        return null;
+        return EventResult.pass();
     }
 
     protected @NotNull RenderShape getRenderShape(BlockState blockState) {
