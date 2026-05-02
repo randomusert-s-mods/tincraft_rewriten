@@ -6,6 +6,7 @@ import dev.architectury.event.events.common.InteractionEvent;
 import io.github.randomusert.mods.tincraft.block.entities.TinGeneratorEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -65,16 +66,17 @@ public class TinGeneratorBlock extends BaseEntityBlock implements InteractionEve
         return (BlockState)this.defaultBlockState().setValue(FACING, blockPlaceContext.getHorizontalDirection().getOpposite());
     }
 
-    /*
+
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            this.openContainer(level, blockPos, player);
+            //this.openContainer(level, blockPos, player);
+            player.sendSystemMessage(Component.literal("Tin Generator right clicked"));
             return InteractionResult.CONSUME;
         }
-    }*/
+    }
 
 
 
