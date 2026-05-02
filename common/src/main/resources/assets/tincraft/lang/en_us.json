@@ -1,6 +1,16 @@
 {
   "item.tincraft.tin_ingot": "Tin Ingot",
+  "item.tincraft.conductive_tin_ingot": "Conductive Tin Ingot",
+
   "block.tincraft.tin_block": "Block of Tin",
   "block.tincraft.tin_ore": "Tin Ore",
-  "creative_tab.main": "TinCraft 2 main tab"
+  "block.tincraft.tin_furnace": "Tin Furnace",
+
+  "creative_tab.main": "TinCraft 2 main tab",
+
+  "blockentity.tincraft.tin_generator": "Tin Generator",
+  "blockentity.tincraft.tin_energy_cube": "Tin Energy Cube",
+  "blockentity.tincraft.tin_furnace": "Tin Furnace",
+
+  "tooltip.tincraft.conductive_tin_ingot": "Tin ingot that is conductive. used to craft machines"
 }

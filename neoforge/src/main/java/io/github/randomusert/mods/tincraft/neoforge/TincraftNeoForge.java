@@ -7,6 +7,10 @@ import net.neoforged.fml.common.Mod;
 public final class TincraftNeoForge {
     public TincraftNeoForge() {
         // Run our common setup.
+        Tincraft.LOGGER.info("Neoforge Init started");
+
         Tincraft.init();
+
+        Tincraft.LOGGER.info("Neoforge Init completed");
     }
 }
