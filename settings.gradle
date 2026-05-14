@@ -9,6 +9,8 @@ pluginManagement {
 
 rootProject.name = 'tincraft'
 
+
 include 'common'
 include 'fabric'
 include 'neoforge'
+

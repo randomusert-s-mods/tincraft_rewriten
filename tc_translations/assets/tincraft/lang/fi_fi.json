@@ -1,0 +1,16 @@
+{
+  "item.tincraft.tin_ingot": "Tina Harkko",
+  "item.tincraft.conductive_tin_ingot": "Johtava Tina Harkko",
+
+  "block.tincraft.tin_block": "Tinakuutio",
+  "block.tincraft.tin_ore": "Tinamalmi",
+  "block.tincraft.tin_furnace": "Tina uuni",
+
+  "creative_tab.main": "TinCraft 2 pää välilehti",
+
+  "blockentity.tincraft.tin_generator": "Tina Generaattori",
+  "blockentity.tincraft.tin_energy_cube": "Tin Energy Cube",
+  "blockentity.tincraft.tin_furnace": "Tina uuni",
+
+  "tooltip.tincraft.conductive_tin_ingot": "Tin ingot joka johdattaa sähköä. käytetään koneiden valmistukseen"
+}

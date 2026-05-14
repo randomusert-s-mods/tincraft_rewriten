@@ -1,0 +1,13 @@
+{
+  "type": "tincraft:tin_smelting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1,
+  "ingredient": {
+    "item": "tincraft:tin_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "tincraft:tin_ingot"
+  }
+}

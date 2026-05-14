@@ -30,3 +30,9 @@ If you encounter bugs or want to suggest a feature, please submit them here:
 * TinCore
 
 Created by randomusert
+
+
+## notes about docs
+If you are not wanting to look at the online, we've provided a script to build html docs from the md files in the docs folder.
+
+The script has been provided for convenience.
