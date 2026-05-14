@@ -8,6 +8,7 @@
 - [ ] Tin Energy Cube
 - [ ] Crusher
 - [ ] Recipe Types
+- [X] Tin furnace
 
 ---
 
@@ -24,3 +25,5 @@
 - [ ] Machines save/load correctly
 - [ ] Energy persists correctly
 - [ ] No missing textures or broken models
+- [ ] Client and/or server doesn't crash
+- [ ] No missing translations
